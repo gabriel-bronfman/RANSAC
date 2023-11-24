@@ -80,4 +80,5 @@ The core insight here is that great guesses with low outliers SHOULD cause your 
 
 Below, you can see images of the point cloud pre and post RANSAC, with the red dots representing the largest plane.
 
-
+![alt text](https://github.com/gabriel-bronfman/RANSAC/blob/main/media/demo_pc.png)
+![alt text](https://github.com/gabriel-bronfman/RANSAC/blob/main/media/Screenshot%202023-10-12%20at%204.23.21%20PM.png)
