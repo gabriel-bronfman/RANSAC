@@ -1,22 +1,22 @@
 # RANSAC
 
-## Overview
+# Overview
 
 This repository shows an implementation of Dynamic Sampling RAndom SAmpling Consensus (RANSAC) that finds the largest plane in a default pointCloud from Open3D. 
 
 This readMe will discuss how dynamic sampling for RANSAC works from a conceptual perspective, as well as how it applies here. With the coneptual guide, you should understand the approach well enough to use it in outlier rejection of all sorts.
 
-## Operating
+# Operating
 
 Clone and run RANSAC.py. It works as advertised.
 
-## Principles of RANSAC
+# Principles of RANSAC
 
 In general, when trying to find outliers in a dataset, it can prove to be very time consuming. In general, you expect to test all the points and see which ones produce the best hypothesis for the data. This is a way worse approach than $O(n^2)$. Is there a better way? Well evidently. 
 
 Dynamic Sampling RANSAC uses three key insights each iteration to create an extremely efficient and lightweight solution to outlier rejection that is used accross many industries today, especially perception and computer vision.
 
-# Insight One: Minimum Hypothesis
+## Insight One: Minimum Hypothesis
 
 For each iteration of this approach, we need a hypothesis. For RANSAC, we choose the minimum number of datapoints that can create this hypothesis for us. In the case of estimating a plane, that requires three points. If you were estimating a homography, you would need four. If you were estimating the F-matrix between two camera perspectives, you would pick seven.
 
@@ -24,7 +24,7 @@ Using this hypothesis, you can estimate the number of points that fall within a 
 
 Because you are doing a minimal hypothesis, you can choose many different hypothesises over the dataset to try to find the best one
 
-# Insight Two: Probabalistic analysis of outliers
+## Insight Two: Probabalistic analysis of outliers
 
 Assuming a global solution, if we were to pick all inliers for our hypothesis generation, we can assume that the generate hypothesis would describe the global optimal hypothesis pretty well. Therefore we can call the probability we pick an inlier $P$. We call the ratio of $\frac{inlier}{outlier}$ as $\epsilon$. 
 
@@ -36,7 +36,7 @@ If we need to pick $s$ number of inliers for our good hypothesis, we can say tha
 ```math
 P^s = (1-\epsilon)^s
 ```
-#Insight Three: Stop when you are done
+## Insight Three: Stop when you are done
 
 In general, we repeat the process for selecting points, generating a hypothesis, and determing the number of inliers $N$ times. After $N$ iterations, we simply retain the hypothesis with the best number of inliers as our estimating best global hypothesis. But how do we find out an $N$ that ensures we found a guess that is good enough?
 
@@ -53,7 +53,7 @@ N = \frac{\ln{1-p}}{\ln{1-(1-\epsilon}^s)}
 ```
 If we wanted to have a 99% probability of solving for a "good" hypothesis, we simply need to plug in our known $p,s$ and tune our $\epsilon$ for our data.
 
-$$ Dynamic Sampling
+# Dynamic Sampling
 
 Dynamic sampling takes this one step further by enabling the loop to exit when you have found a solution that is "good enough", which in practice is the way you will see RANSAC used.
 
