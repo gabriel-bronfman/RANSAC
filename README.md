@@ -32,7 +32,7 @@ Because you are doing a minimal hypothesis, you can choose many different hypoth
 
 ## Insight Two: Probabalistic analysis of outliers
 
-Assuming a global solution, if we were to pick all inliers for our hypothesis generation, we can assume that the generate hypothesis would describe the global optimal hypothesis pretty well. Therefore we can call the probability we pick an inlier $P$. We call the ratio of $\frac{inlier}{outlier}$ as $\epsilon$. 
+Assuming a global solution, if we were to pick all inliers for our hypothesis generation, we can assume that the generated hypothesis would describe the global optimal hypothesis pretty well. Therefore we can call the probability we pick an inlier $P$. We call the ratio of $\frac{inlier}{outlier}$ as $\epsilon$. 
 
 We know that the probabily $P$ can be defined as 
 ```math
