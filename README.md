@@ -12,7 +12,7 @@ Clone and run RANSAC.py. It works as advertised.
 
 ```
 git clone https://github.com/gabriel-bronfman/RANSAC.git
-conda create -f ransac.yml
+conda env create -f ransac.yml
 python ransac.py
 ```
 
