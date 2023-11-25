@@ -10,6 +10,12 @@ This readMe will discuss how dynamic sampling for RANSAC works from a conceptual
 
 Clone and run RANSAC.py. It works as advertised.
 
+```
+git clone https://github.com/gabriel-bronfman/RANSAC.git
+conda create -f ransac.yml
+python ransac.py
+```
+
 # Principles of RANSAC
 
 In general, when trying to find outliers in a dataset, it can prove to be very time consuming. In general, you expect to test all the points and see which ones produce the best hypothesis for the data. This is a way worse approach than $O(n^2)$. Is there a better way? Well evidently. 
