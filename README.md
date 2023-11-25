@@ -16,7 +16,7 @@ In general, when trying to find outliers in a dataset, it can prove to be very t
 
 Dynamic Sampling RANSAC uses three key insights each iteration to create an extremely efficient and lightweight solution to outlier rejection that is used accross many industries today, especially perception and computer vision.
 
-#Insight One: Minimum Hypothesis
+# Insight One: Minimum Hypothesis
 
 For each iteration of this approach, we need a hypothesis. For RANSAC, we choose the minimum number of datapoints that can create this hypothesis for us. In the case of estimating a plane, that requires three points. If you were estimating a homography, you would need four. If you were estimating the F-matrix between two camera perspectives, you would pick seven.
 
@@ -24,7 +24,7 @@ Using this hypothesis, you can estimate the number of points that fall within a 
 
 Because you are doing a minimal hypothesis, you can choose many different hypothesises over the dataset to try to find the best one
 
-#Insight Two: Probabalistic analysis of outliers
+# Insight Two: Probabalistic analysis of outliers
 
 Assuming a global solution, if we were to pick all inliers for our hypothesis generation, we can assume that the generate hypothesis would describe the global optimal hypothesis pretty well. Therefore we can call the probability we pick an inlier $P$. We call the ratio of $\frac{inlier}{outlier}$ as $\epsilon$. 
 
